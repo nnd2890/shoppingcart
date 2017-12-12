@@ -42,15 +42,12 @@ class UserController extends Controller
     	$email = $request->input('email');
 	    $password = $request->input('password');
 
-	    if (Auth::attempt(array('email' => 'nnd2890@gmail.com', 'password' => '123456')))
+	    if (Auth::attempt(array('email' => $email, 'password' => $password)))
 	    {
 	        return redirect()->route('user.profile');
 	    } else {
-	    	dd(Auth::attempt(array('email' => 'nnd2890@gmail.com', 'password' => '123456')));
 	        return redirect()->back();
 	    }
-    	// return redirect()->back();
-    	// return redirect()->route('product.index');
     }
 
     public function profile() {
